@@ -24,6 +24,7 @@ import MediaLibrary from "./pages/MediaLibrary.tsx";
 import SignIn from "./pages/SignIn.tsx";
 import SignUp from "./pages/SignUp.tsx";
 import Landing from "./pages/Landing.tsx";
+import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
 
@@ -34,14 +35,15 @@ function AppContent() {
   useEffect(() => {
     loadingBarRef.current?.continuousStart?.();
 
-    const timer = setTimeout(() => {
-      loadingBarRef.current?.complete?.();
-    }, 500);
+    const onLoad = () => loadingBarRef.current?.complete?.();
+    window.addEventListener("load", onLoad);
 
-    return () => clearTimeout(timer);
+    return () => {
+      window.removeEventListener("load", onLoad);
+    };
   }, []);
 
-  const loadingBarColor = theme === "dark" ? "#64b5f6" : "#64b5f6";
+  const loadingBarColor = "var(--accent)";
 
   return (
     <>
@@ -113,6 +115,7 @@ function AppContent() {
           </Route>
           <Route path="/signin" element={<SignIn />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </ErrorBoundary>
       <ReactQueryDevtools initialIsOpen={false} />
