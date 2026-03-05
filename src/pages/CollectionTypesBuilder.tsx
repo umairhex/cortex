@@ -79,10 +79,10 @@ export default function CollectionTypesBuilder() {
                         <Link
                           to={item.link}
                           className={
-                            "flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-accent transition-colors" +
+                            "flex items-center gap-2 px-3 py-2 rounded-lg hover:bg-accent hover:text-accent-foreground transition-colors" +
                             (location ===
                             `/collection-types-builder/${item.link}`
-                              ? " bg-accent"
+                              ? " bg-accent text-accent-foreground"
                               : "")
                           }
                         >

@@ -40,7 +40,7 @@ const FieldCard = ({
           {fieldGroup.types.length > 1 ? (
             <Dialog>
               <DialogTrigger asChild>
-                <div className="p-3 border rounded-lg hover:bg-accent cursor-pointer transition flex items-center justify-between">
+                <div className="p-3 border rounded-lg hover:bg-accent hover:text-accent-foreground cursor-pointer transition flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     {getIcon(fieldGroup.icon)}
                     <div>
@@ -56,7 +56,7 @@ const FieldCard = ({
                       </p>
                     </div>
                   </div>
-                  <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                  <ChevronRight className="h-4 w-4 text-current" />
                 </div>
               </DialogTrigger>
               <DialogContent>
@@ -74,8 +74,8 @@ const FieldCard = ({
                       key={field.type}
                       className={`p-3 border rounded-lg cursor-pointer transition text-left w-full ${
                         selectedTypes[fieldGroup.name] === field.type
-                          ? "bg-accent border-primary"
-                          : "hover:bg-accent"
+                          ? "bg-accent border-primary text-accent-foreground"
+                          : "hover:bg-accent hover:text-accent-foreground"
                       }`}
                       onClick={() =>
                         handleTypeSelect(fieldGroup.name, field.type)
@@ -115,7 +115,7 @@ const FieldCard = ({
           ) : (
             <button
               type="button"
-              className="p-3 border rounded-lg hover:bg-accent cursor-pointer transition flex items-center justify-between w-full text-left"
+              className="p-3 border rounded-lg hover:bg-accent hover:text-accent-foreground cursor-pointer transition flex items-center justify-between w-full text-left"
               onClick={() => {
                 handleTypeSelect(fieldGroup.name, fieldGroup.types[0].type);
                 onAdd(fieldGroup.name, fieldGroup.types[0].type);
