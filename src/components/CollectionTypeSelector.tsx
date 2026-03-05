@@ -16,7 +16,9 @@ export const CollectionTypeSelector = ({
         <button
           type="button"
           className={`flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent cursor-pointer w-full text-left ${
-            collectionType === "collection" ? "bg-accent border-primary" : ""
+            collectionType === "collection"
+              ? "bg-accent border-primary text-accent-foreground"
+              : ""
           }`}
           onClick={() => setCollectionType("collection")}
         >
@@ -26,10 +28,20 @@ export const CollectionTypeSelector = ({
             )}
           </div>
           <div className="flex-1">
-            <Label className="font-medium cursor-pointer">
+            <Label
+              className={`font-medium cursor-pointer ${
+                collectionType === "collection" ? "text-accent-foreground" : ""
+              }`}
+            >
               Collection Types
             </Label>
-            <p className="text-sm text-muted-foreground">
+            <p
+              className={`text-sm ${
+                collectionType === "collection"
+                  ? "text-accent-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
               Multiple entries with the same structure
             </p>
           </div>
@@ -37,7 +49,9 @@ export const CollectionTypeSelector = ({
         <button
           type="button"
           className={`flex items-center space-x-3 p-3 border rounded-lg hover:bg-accent cursor-pointer w-full text-left ${
-            collectionType === "single" ? "bg-accent border-primary" : ""
+            collectionType === "single"
+              ? "bg-accent border-primary text-accent-foreground"
+              : ""
           }`}
           onClick={() => setCollectionType("single")}
         >
@@ -47,8 +61,20 @@ export const CollectionTypeSelector = ({
             )}
           </div>
           <div className="flex-1">
-            <Label className="font-medium cursor-pointer">Single Types</Label>
-            <p className="text-sm text-muted-foreground">
+            <Label
+              className={`font-medium cursor-pointer ${
+                collectionType === "single" ? "text-accent-foreground" : ""
+              }`}
+            >
+              Single Types
+            </Label>
+            <p
+              className={`text-sm ${
+                collectionType === "single"
+                  ? "text-accent-foreground"
+                  : "text-muted-foreground"
+              }`}
+            >
               Single entry with unique content
             </p>
           </div>

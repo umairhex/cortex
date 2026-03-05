@@ -43,7 +43,11 @@ export function AppSidebar({
               className="data-[slot=sidebar-menu-button]:p-1.5!"
             >
               <Link to="/dashboard">
-                <img src={logoSrc} alt="Cortex Logo" className="h-8 w-auto" />
+                <img
+                  src={logoSrc}
+                  alt="Cortex Logo"
+                  className="h-8 w-auto animate-spin duration-1000"
+                />
                 <span className="font-semibold text-lg tracking-tight">
                   Cortex
                 </span>
