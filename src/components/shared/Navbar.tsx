@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import blackLogo from "@/assets/black-logo.svg";
 import whiteLogo from "@/assets/white-logo.svg";
-import { ModeToggle } from "@/components/mode-toggle";
-import { ThemeColorSwitcher } from "@/components/theme-color-switcher";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+
 import { useTheme } from "@/components/use-theme";
 import { Button } from "../ui/button";
 
@@ -23,35 +23,39 @@ export function Navbar() {
     >
       <div className="mx-auto px-6 py-4">
         <div className="flex items-center justify-between max-w-6xl mx-auto rounded-2xl border border-border/50 bg-background/80 backdrop-blur-xl px-6 py-3">
-          <a href="/" className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img
               src={logoSrc}
-              alt="Cortex DB Logo"
-              className="h-8 w-auto animate-[spin_3s_linear_infinite]"
+              alt="Cortex Logo"
+              className="h-8 w-auto animate-spin duration-1000"
             />
-            <span className="font-semibold">Cortex DB</span>
-          </a>
+            <span className="font-semibold text-lg tracking-tight">Cortex</span>
+          </Link>
 
           <div className="hidden md:flex items-center gap-8">
             <a
               href="#features"
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("features")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
               Features
             </a>
-            <a
-              href="#how-it-works"
+            <Link
+              to="/docs"
               className="text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              How it works
-            </a>
-            <Link to="/docs">Docs</Link>
+              Docs
+            </Link>
           </div>
 
           <div className="hidden md:flex items-center gap-3">
             <div className="flex items-center gap-2">
-              <ThemeColorSwitcher />
-              <ModeToggle />
+              <AnimatedThemeToggler />
             </div>
             <Button
               asChild
@@ -94,23 +98,24 @@ export function Navbar() {
           >
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-end gap-2">
-                <ThemeColorSwitcher />
-                <ModeToggle />
+                <AnimatedThemeToggler />
               </div>
               <a
                 href="#features"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("features")?.scrollIntoView({
+                    behavior: "smooth",
+                  });
+                  setIsOpen(false);
+                }}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
               >
                 Features
               </a>
-              <a
-                href="#how-it-works"
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
-              >
-                How it works
-              </a>
               <Link
                 to="/docs"
+                onClick={() => setIsOpen(false)}
                 className="text-sm text-muted-foreground hover:text-foreground transition-colors py-2"
               >
                 Docs

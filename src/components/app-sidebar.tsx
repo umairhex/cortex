@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type * as React from "react";
 import blackLogo from "@/assets/black-logo.svg";
 import whiteLogo from "@/assets/white-logo.svg";
@@ -37,13 +38,16 @@ export function AppSidebar({
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton className="data-[slot=sidebar-menu-button]:p-1.5!">
-              <img
-                src={logoSrc}
-                alt="Cortex DB Logo"
-                className="h-8 w-auto animate-[spin_3s_linear_infinite]"
-              />
-              <span className="font-semibold">Cortex DB</span>
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:p-1.5!"
+            >
+              <Link to="/dashboard">
+                <img src={logoSrc} alt="Cortex Logo" className="h-8 w-auto" />
+                <span className="font-semibold text-lg tracking-tight">
+                  Cortex
+                </span>
+              </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>

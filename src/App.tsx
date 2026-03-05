@@ -1,12 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { useEffect, useRef } from "react";
-import {
-  Navigate,
-  Route,
-  BrowserRouter as Router,
-  Routes,
-} from "react-router-dom";
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import LoadingBar, { type LoadingBarRef } from "react-top-loading-bar";
 import Layout from "./components/Layout.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
@@ -28,6 +23,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import MediaLibrary from "./pages/MediaLibrary.tsx";
 import SignIn from "./pages/SignIn.tsx";
 import SignUp from "./pages/SignUp.tsx";
+import Landing from "./pages/Landing.tsx";
 
 const queryClient = new QueryClient();
 
@@ -60,9 +56,9 @@ function AppContent() {
       />
       <ErrorBoundary>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Landing />} />
+          <Route element={<Layout />}>
             <Route path="/docs" element={<Docs />} />
-            <Route index element={<Navigate to="/dashboard" replace />} />
             <Route
               path="/dashboard"
               element={
@@ -127,7 +123,7 @@ function AppContent() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider defaultTheme="amber" storageKey="vite-ui-theme">
+      <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
         <AuthProvider>
           <CollectionsProvider>
             <LenisProvider>

@@ -62,6 +62,12 @@ export default function Docs() {
                       <li>
                         <a
                           href="#getting-started"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document
+                              .getElementById("getting-started")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
                           className="text-muted-foreground hover:text-foreground"
                         >
                           Getting started
@@ -70,6 +76,12 @@ export default function Docs() {
                       <li>
                         <a
                           href="#installation"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document
+                              .getElementById("installation")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
                           className="text-muted-foreground hover:text-foreground"
                         >
                           Installation
@@ -78,6 +90,12 @@ export default function Docs() {
                       <li>
                         <a
                           href="#usage"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document
+                              .getElementById("usage")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
                           className="text-muted-foreground hover:text-foreground"
                         >
                           Usage
@@ -86,6 +104,12 @@ export default function Docs() {
                       <li>
                         <a
                           href="#api"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            document
+                              .getElementById("api")
+                              ?.scrollIntoView({ behavior: "smooth" });
+                          }}
                           className="text-muted-foreground hover:text-foreground"
                         >
                           API
@@ -223,8 +247,10 @@ export default function Docs() {
                     <h3 className="mt-6">Contributing</h3>
                     <p>
                       Contributions are welcome — please see the{" "}
-                      <a href="/CONTRIBUTING.md">contributing guide</a> for
-                      details.
+                      <Link to="/docs" className="text-primary hover:underline">
+                        contributing guide
+                      </Link>{" "}
+                      for details.
                     </p>
                   </section>
                 </article>

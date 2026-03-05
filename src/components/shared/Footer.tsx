@@ -11,14 +11,14 @@ export function Footer() {
     <footer className="border-t border-border py-12">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <a href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <img
               src={useTheme().resolvedTheme === "dark" ? whiteLogo : blackLogo}
               alt="Cortex Logo"
-              className="w-8 h-8 animate-[spin_3s_linear_infinite]"
+              className="w-8 h-8"
             />
-            <span className="font-semibold text-lg">Cortex</span>
-          </a>
+            <span className="font-semibold text-lg tracking-tight">Cortex</span>
+          </Link>
 
           <div className="flex items-center gap-8">
             <Link

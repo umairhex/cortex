@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { AppSidebar } from "@/components/app-sidebar";
 import FontSelector from "@/components/FontSelector";
-import { ModeToggle } from "@/components/mode-toggle";
-import { ThemeColorSwitcher } from "@/components/theme-color-switcher";
+import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler";
+
 import {
   SidebarHeader,
   SidebarInset,
@@ -27,8 +27,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
             <SidebarTrigger />
             <div className="flex gap-3 items-center">
               <FontSelector />
-              <ThemeColorSwitcher />
-              <ModeToggle />
+              <AnimatedThemeToggler />
             </div>
           </div>
         </SidebarHeader>

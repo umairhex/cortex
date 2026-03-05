@@ -14,32 +14,14 @@ export const AnimatedThemeToggler = ({
   className,
 }: AnimatedThemeTogglerProps) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
 
   const isDark = resolvedTheme === "dark";
-
-  const getCurrentBase = (themeName: string | undefined) => {
-    if (!themeName) return "default";
-    if (themeName === "light" || themeName === "dark") return "default";
-    if (themeName === "system") return "default";
-    return themeName.endsWith("-dark")
-      ? themeName.replace("-dark", "")
-      : themeName;
-  };
 
   const onToggle = useCallback(async () => {
     if (!buttonRef.current) return;
 
-    const base = getCurrentBase(theme);
-    const toggled = !isDark;
-    const newTheme =
-      base === "default"
-        ? toggled
-          ? "dark"
-          : "light"
-        : toggled
-          ? `${base}-dark`
-          : base;
+    const newTheme = isDark ? "light" : "dark";
 
     if (!document.startViewTransition) {
       setTheme(newTheme);
@@ -74,7 +56,7 @@ export const AnimatedThemeToggler = ({
         pseudoElement: "::view-transition-new(root)",
       },
     );
-  }, [isDark, theme, setTheme]);
+  }, [isDark, setTheme]);
 
   return (
     <button
@@ -82,7 +64,7 @@ export const AnimatedThemeToggler = ({
       onClick={onToggle}
       aria-label="Switch theme"
       className={cn(
-        "relative flex items-center justify-center p-2 rounded-full outline-none focus:outline-none active:outline-none focus:ring-0 cursor-pointer",
+        "group relative flex items-center justify-center p-2 rounded-full outline-none focus:outline-none active:outline-none focus:ring-0 cursor-pointer text-muted-foreground hover:text-foreground",
         className,
       )}
       type="button"
