@@ -1,13 +1,24 @@
 import { Link } from "react-router-dom";
+import { useTheme } from "@/components/use-theme";
+import blackLogo from "@/assets/black-logo.svg";
+import whiteLogo from "@/assets/white-logo.svg";
 
-export function Footer() {
+const Footer = () => {
+  const { resolvedTheme } = useTheme();
+  const logoSrc = resolvedTheme === "dark" ? whiteLogo : blackLogo;
+
   return (
-    <footer className="border-t border-border py-12 px-6">
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-        <p className="text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Cortex. Open source & free.
-        </p>
-        <div className="flex items-center gap-6 text-sm text-muted-foreground">
+    <footer className="border-t">
+      <div className="max-w-6xl mx-auto px-4 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <img src={logoSrc} alt="Cortex" className="size-8 animate-spin" />
+          <span className="font-serif text-base">Cortex</span>
+        </div>
+
+        <nav className="flex items-center gap-6 text-sm text-muted-foreground">
+          <Link to="/docs" className="hover:text-foreground transition-colors">
+            Docs
+          </Link>
           <a
             href="https://github.com/umairhex/cortex"
             target="_blank"
@@ -16,11 +27,16 @@ export function Footer() {
           >
             GitHub
           </a>
-          <Link to="/docs" className="hover:text-foreground transition-colors">
-            Documentation
+          <Link
+            to="/dashboard"
+            className="hover:text-foreground transition-colors"
+          >
+            Dashboard
           </Link>
-        </div>
+        </nav>
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

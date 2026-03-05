@@ -9,9 +9,8 @@ import {
   SnippetTabsList,
   SnippetTabsTrigger,
 } from "@/components/kibo-ui/snippet";
-import { Footer } from "@/components/shared/Footer";
-import { Navbar } from "@/components/shared/Navbar";
 import { Button } from "@/components/ui/button";
+import Navbar from "@/components/landing/Navbar";
 
 export default function Docs() {
   return (
@@ -259,7 +258,6 @@ export default function Docs() {
           </div>
         </section>
       </main>
-      <Footer />
     </div>
   );
 }
