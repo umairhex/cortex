@@ -3,23 +3,6 @@
 
 @custom-variant dark (&:is(.dark *));
 
-/* Fix scrollbar disappearing when dropdown/dialog opens */
-html {
-  overflow-y: scroll !important;
-  scrollbar-gutter: stable;
-}
-
-body {
-  overflow-y: auto !important;
-}
-
-/* Prevent Radix UI from hiding scrollbar */
-body[data-scroll-locked] {
-  overflow-y: scroll !important;
-  margin-right: 0 !important;
-  padding-right: 0 !important;
-}
-
 /* View Transitions API - theme toggle animation */
 ::view-transition-old(root),
 ::view-transition-new(root) {
