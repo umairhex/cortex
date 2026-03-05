@@ -2,8 +2,8 @@
 
 The modern, intelligent dashboard for the Cortex CMS. Built with React 19, Vite, and Shadcn/UI, it offers a premium user experience for content management.
 
-**Repository:** [https://github.com/umairrx/cortex](https://github.com/umairrx/cortex)
-**Backend:** [https://github.com/umairrx/cortex-backend](https://github.com/umairrx/cortex-backend)
+**Repository:** [https://github.com/umairhex/cortex](https://github.com/umairhex/cortex)
+**Backend:** [https://github.com/umairhex/cortex-backend](https://github.com/umairhex/cortex-backend)
 
 ## 🌟 Features
 
@@ -13,7 +13,6 @@ The modern, intelligent dashboard for the Cortex CMS. Built with React 19, Vite,
 - **Real-time Updates**: Powered by TanStack Query.
 - **Dark Mode**: Built-in heavy/light mode switching.
 - **Responsive**: Fully mobile-responsive layout.
-- **Landing Page**: Public demo landing page available at `/` (no sign-in required).
 
 ## 🛠️ Tech Stack
 
@@ -29,7 +28,7 @@ The modern, intelligent dashboard for the Cortex CMS. Built with React 19, Vite,
 1.  **Clone the repository**
 
     ```bash
-    git clone https://github.com/umairrx/cortex.git
+    git clone https://github.com/umairhex/cortex.git
     cd cortex
     ```
 

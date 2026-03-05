@@ -9,13 +9,6 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "./use-theme.ts";
 
-/**
- * Theme toggle component that allows users to switch between light, dark, and system themes.
- * Displays a sun/moon icon that animates based on the current theme selection.
- * Provides a dropdown menu for theme selection.
- *
- * @returns A button with dropdown menu for theme selection
- */
 export function ModeToggle() {
   const { theme, setTheme } = useTheme();
 

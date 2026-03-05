@@ -24,18 +24,10 @@ import ContentManager from "./pages/ContentManager.tsx";
 import CreateCollection from "./pages/CreateCollection.tsx";
 import Dashboard from "./pages/Dashboard.tsx";
 import Docs from "./pages/Docs";
-import Landing from "./pages/Landing.tsx";
+import ErrorBoundary from "./components/ErrorBoundary";
 import MediaLibrary from "./pages/MediaLibrary.tsx";
 import SignIn from "./pages/SignIn.tsx";
 import SignUp from "./pages/SignUp.tsx";
-
-/**
- * Main application content component that sets up routing and displays the loading bar.
- * Manages navigation between different pages and handles route protection.
- * Renders a continuous loading bar that animates on route changes.
- *
- * @returns The application routes with a loading bar indicator
- */
 
 const queryClient = new QueryClient();
 
@@ -66,78 +58,72 @@ function AppContent() {
         waitingTime={200}
         transitionTime={300}
       />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Landing />} />
-          <Route path="/docs" element={<Docs />} />
-          <Route index element={<Navigate to="/dashboard" replace />} />
-          <Route
-            path="/dashboard"
-            element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/content-manager"
-            element={
-              <ProtectedRoute>
-                <ContentManager />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/content-manager/:collectionId/create"
-            element={
-              <ProtectedRoute>
-                <ContentCreate />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/media-library"
-            element={
-              <ProtectedRoute>
-                <MediaLibrary />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            path="/collection-types-builder"
-            element={
-              <ProtectedRoute>
-                <CollectionTypesBuilder />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<CreateCollection />} />
-            <Route path=":id" element={<CollectionWrapper />} />
+      <ErrorBoundary>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/docs" element={<Docs />} />
+            <Route index element={<Navigate to="/dashboard" replace />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-manager"
+              element={
+                <ProtectedRoute>
+                  <ContentManager />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/content-manager/:collectionId/create"
+              element={
+                <ProtectedRoute>
+                  <ContentCreate />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/media-library"
+              element={
+                <ProtectedRoute>
+                  <MediaLibrary />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/collection-types-builder"
+              element={
+                <ProtectedRoute>
+                  <CollectionTypesBuilder />
+                </ProtectedRoute>
+              }
+            >
+              <Route index element={<CreateCollection />} />
+              <Route path=":id" element={<CollectionWrapper />} />
+            </Route>
+            <Route
+              path="/api-integration"
+              element={
+                <ProtectedRoute>
+                  <ApiIntegration />
+                </ProtectedRoute>
+              }
+            />
           </Route>
-          <Route
-            path="/api-integration"
-            element={
-              <ProtectedRoute>
-                <ApiIntegration />
-              </ProtectedRoute>
-            }
-          />
-        </Route>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
-      </Routes>
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+        </Routes>
+      </ErrorBoundary>
       <ReactQueryDevtools initialIsOpen={false} />
     </>
   );
 }
 
-/**
- * Root App component that sets up all providers and context layers.
- * Initializes theme, authentication, collections, and routing providers.
- * Wraps the entire application with necessary context providers and renders the main app content.
- *
- * @returns The complete application with all providers and context layers
- */
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
