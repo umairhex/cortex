@@ -2,6 +2,7 @@ import { useTheme } from "@/components/use-theme";
 import ApiIntegrationLight from "@/assets/site-images/api-integeration-light.webp";
 import ApiIntegrationDark from "@/assets/site-images/api-integeration-dark.webp";
 import { Link2, ShieldCheck, HardDrive, Lock } from "lucide-react";
+import ImagePreview from "./ImagePreview";
 
 const highlights = [
   {
@@ -68,7 +69,7 @@ const APIIntegrationSection = () => {
       </div>
 
       <div className="px-3 py-3 rounded-sm border">
-        <img
+        <ImagePreview
           src={screenshot}
           alt="API Integration"
           className="rounded-sm w-full"

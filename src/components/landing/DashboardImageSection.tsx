@@ -1,6 +1,7 @@
 import { useTheme } from "@/components/use-theme";
 import DahboardLightImage from "@/assets/site-images/dashboard-light.webp";
 import DahboardDarkImage from "@/assets/site-images/dashboard-dark.webp";
+import ImagePreview from "./ImagePreview";
 
 const DashboardImageSection = () => {
   const { resolvedTheme } = useTheme();
@@ -9,7 +10,7 @@ const DashboardImageSection = () => {
   return (
     <div className="max-w-6xl mx-auto px-4">
       <div className="px-3 py-3 rounded-sm border">
-        <img
+        <ImagePreview
           src={dashboardImage}
           alt="Cortex Dashboard"
           className="rounded-sm"

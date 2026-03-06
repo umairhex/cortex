@@ -2,6 +2,7 @@ import { useTheme } from "@/components/use-theme";
 import CollectionBuilderLight from "@/assets/site-images/collection-types-builder-light.webp";
 import CollectionBuilderDark from "@/assets/site-images/collection-types-builder-dark.webp";
 import { Layers, PenTool, Send, Plug } from "lucide-react";
+import ImagePreview from "./ImagePreview";
 
 const steps = [
   {
@@ -63,7 +64,7 @@ const FeatureSteps = () => {
       </div>
 
       <div className="px-3 py-3 rounded-sm border">
-        <img
+        <ImagePreview
           src={screenshot}
           alt="Collection Types Builder"
           className="rounded-sm w-full"

@@ -9,6 +9,7 @@ import { AnimatedThemeToggler } from "../ui/animated-theme-toggler";
 const Navbar = () => {
   const { resolvedTheme } = useTheme();
   const logoSrc = resolvedTheme === "dark" ? whiteLogo : blackLogo;
+
   return (
     <nav className="w-full border-b border-t py-0 relative">
       <div className="max-w-6xl mx-auto px-4 flex justify-between items-center border-x relative py-3">
@@ -28,7 +29,6 @@ const Navbar = () => {
           className="absolute -bottom-[12.5px] -right-[12.5px] text-muted-foreground/30 w-6 h-6 z-10 pointer-events-none"
           strokeWidth={1}
         />
-
         <div className="flex gap-1 items-center ml-3 ">
           <img
             src={logoSrc}
@@ -37,7 +37,7 @@ const Navbar = () => {
           />
           <h1 className="font-serif">Cortex</h1>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Button variant={"outline"}>
             <AnimatedThemeToggler />
           </Button>
@@ -48,22 +48,22 @@ const Navbar = () => {
           >
             <Button variant={"outline"}>
               <Github />
-              <span>Github</span>
+              <span className="hidden sm:inline">Github</span>
             </Button>
           </a>
           <Link to="/docs">
             <Button variant={"outline"}>
               <FileText />
-              <span>Docs</span>
+              <span className="hidden sm:inline">Docs</span>
             </Button>
           </Link>
           <Link to="/dashboard">
             <Button>
-              <span>Get Started</span>
-              <ArrowRight className="ml-2" />
+              <ArrowRight className="mr-2" />
+              <span className="hidden sm:inline">Get Started</span>
             </Button>
           </Link>
-        </div>
+        </div>{" "}
       </div>
     </nav>
   );
