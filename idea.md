@@ -20,6 +20,23 @@ A developer signs in, connects their existing MongoDB or PostgreSQL database, in
 
 ---
 
+## Tech Stack
+
+- **Frontend**: React, Vite, TypeScript
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI, Lucide React, Sonner, UIW Markdown Editor
+- **Data Fetching**: TanStack Query, TanStack Table
+- **Client Routing**: React Router
+- **Data Visualization**: Recharts
+- **Animations**: Framer Motion, GSAP
+- **Drag & Drop**: DND Kit
+- **Form Validation**: Zod, React Hook Form
+- **Smooth Scrolling**: Lenis
+- **Architecture**: Client-side single-page application
+- **Libraries**: Axios, React Top Loading Bar, React Syntax Highlighter
+
+---
+
 ## Key Features
 
 ### Collection Types Builder
