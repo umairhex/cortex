@@ -7,7 +7,6 @@ import Layout from "./components/Layout.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import { ThemeProvider } from "./components/theme-provider.tsx";
 import { Toaster } from "./components/ui/sonner.tsx";
-import { useTheme } from "./components/use-theme";
 import { AuthProvider } from "./contexts/AuthContext.tsx";
 import { CollectionsProvider } from "./contexts/CollectionsContext.tsx";
 import { LenisProvider } from "./contexts/LenisContext";
@@ -30,7 +29,6 @@ const queryClient = new QueryClient();
 
 function AppContent() {
   const loadingBarRef = useRef<LoadingBarRef | null>(null);
-  const { theme } = useTheme();
 
   useEffect(() => {
     loadingBarRef.current?.continuousStart?.();
